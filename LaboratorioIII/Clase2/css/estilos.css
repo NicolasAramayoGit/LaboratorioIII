@@ -1,0 +1,29 @@
+h1{
+    color: goldenrod;
+}
+
+h2{
+  color: violet;  
+}
+/*
+body{
+  background: url(../img/Koala.jpg) center;
+  
+}*/
+
+
+#titulo{
+  color: red;
+}
+
+.naranja{
+  color: orange; 
+}
+
+#parrafo1, #parrafo2{
+  color: blueviolet;
+}
+
+#parrafo1{
+  background-color: black;
+}

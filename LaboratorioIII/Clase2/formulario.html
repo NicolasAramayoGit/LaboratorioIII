@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>FORMULARIOS - CLASE 2</title>
+</head>
+
+<body>
+
+    <!-- FORMULARIOS -->
+    <!-- action= va el archivo php method= va el get o post -->
+    <!-- name es lo que va a llevar al servidor -->
+    <form id="miform" action="" method="">
+        <label for="nombre">Nombre: </label>
+        <input type="text" name="nombre" id="nombre" placeholder="nombre">
+
+        <label for="apellido">apellido: </label>
+        <input type="text" name="apellido" id="apellido" placeholder="apellido">
+
+        <fieldset>
+            <legend>Mis datos</legend>
+            <label for="user">Usuario: </label>
+            <input type="text" name="user" placeholder="usuario">
+            <input type="text" name="pass" placeholder="password">
+        </fieldset>
+
+        <br>
+
+        <label for="genero">Ingrese su sexo: </label>
+        <br>
+        <input type="radio" name="genero" id="genero" value="masculino" checked /> M
+        <input type="radio" name="genero" value="femenino" /> F
+
+        <br>
+        <br>
+
+        <select>
+            <option value="value1">opcion1</option>
+            <option value="value2">opcion2</option>
+        </select>
+
+        <br>
+        <br>
+
+        <select>
+            <optgroup label="Swedish Cars">
+                <option value="volvo">Volvo</option>
+                <option value="saab">Saab</option>
+            </optgroup>
+            <optgroup label="German Cars">
+                <option value="mercedes">Mercedes</option>
+                <option value="audi">Audi</option>
+            </optgroup>
+        </select>
+
+        <br>
+        <br>
+
+        <input list="marcas">
+        <datalist id="marcas">
+            <option value="Renault">
+                <option value="Ford">
+        </datalist>
+
+        <input type="checkbox" name="interes" value="informatica" checked>informatica
+
+        <br>
+        <br>
+
+        <input type="color">
+
+        <br>
+        <br>
+        <input type="date">
+
+
+        <br>
+        <br>
+        <input type="url">
+
+
+        <br>
+        <br>
+        <input type="password">
+
+        <br>
+        <br>
+        <input type="number" min="0" max="10">
+
+        <br>
+        <br>
+        <input type="text" pattern="[A-Za-z]{3}" required>
+
+        <br>
+        <br>
+
+        <button type="button">
+            Submit
+        </button>
+
+    </form>
+
+</body>
+
+</html>
