@@ -1,0 +1,35 @@
+
+BOWER
+
+REQUISITOS
+-----------------------
+Tener instalado Node
+
+ACCIONES
+-----------------------
+
+Abré la terminal
+npm install -g bower
+bower init
+- Tecla 'enter' a todo - hasta llegar a (yes/no) - poner yes -
+
+Se creará un archivo 'bower.json'.
+Finalmente crear un archivo '.bowerrc', y dentro pegar estas líneas:
+
+{
+    "directory": "js"
+}
+
+comandos
+------------------------
+
+control + ñ (Abre la terminal)
+bower -v (version)
+bower (muestra commandos)
+
+
+/////////////////////////////////////////////////////
+
+localStorage
+
+sessionStorage
