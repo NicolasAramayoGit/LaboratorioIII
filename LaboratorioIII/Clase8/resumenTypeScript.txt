@@ -1,0 +1,9 @@
+npm install -g typescript
+tsc -v                          Version de typescript
+tsc -init                       Transpila el .ts
+tsc -w                          21:57:39 - Compilation complete. Watching for file changes.
+tsc --watch                     hace que se transpile automaticamente. Misma funcionalidad que: tsc -w 
+
+npm install jquery              instala jquery en el proyecto
+<script src="node_modules/jquery/dist/jquery.min.js"></script> metemos al index.html
+npm install @types/jquery

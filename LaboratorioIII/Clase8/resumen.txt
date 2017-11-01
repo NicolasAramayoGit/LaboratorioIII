@@ -1,0 +1,34 @@
+
+Genera lista realistas. ej JSON DE AUTOS con modelo, marca, año
+http://www.mockaroo.com 
+
+Devolvernos un array con todos los retornos del callback.
+array.prototype.map()
+
+arry.map(callback[])
+
+Retorna siempre true o false, si es true lo que devuelve pasa al array de salida.
+arry.filter(callback[, thisArg])
+
+arry.filter( function(valorActual, indice, array{...}))
+
+var mayoresA3 = numeros.filter( function(numero){
+    return numero > 3;
+});
+
+
+Convierte o reduce un array hasta un unico valor por medio 
+de la funcion pasada como Callback.
+arry.reduce(callback[, initialValue])
+
+arr.reduce( function(valorActual, valorAnterior, indiceActual, array{...}))
+
+var numeros[1 ,2 ,]
+
+var total = numeros.reduce( fuction (previo, actual){
+    return previo + actual;
+}, 0);
+
+//21
+
+

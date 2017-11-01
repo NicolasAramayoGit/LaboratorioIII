@@ -1,0 +1,8 @@
+
+
+navbar-toggle: para movile agregra el icono con 3 rayas.
+collapse: lo que hace es collapsar el navbar.
+
+collapse navbar-collapse: agrega un raya.
+nav navbar-nav: alinea al costado todos los li. 
+nav navbar-nav navbar-right:  manda a la derecha los li
