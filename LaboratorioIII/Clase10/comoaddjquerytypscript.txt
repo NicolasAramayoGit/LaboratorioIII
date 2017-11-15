@@ -1,0 +1,4 @@
+npm init
+todo enter hasta que aparesca Is this ok? yes
+npm install @types/jquery
+npm install jquery
