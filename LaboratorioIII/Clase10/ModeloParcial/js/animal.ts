@@ -1,5 +1,5 @@
 namespace Entidades {
-    export class animal {
+    export abstract class animal {
 //abstracta
         public nombre:string;
         public edad:number;

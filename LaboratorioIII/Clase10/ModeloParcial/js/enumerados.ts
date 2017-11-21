@@ -1,5 +1,0 @@
-namespace Entidades {
-    enum enumerados{
-        
-    }
-}

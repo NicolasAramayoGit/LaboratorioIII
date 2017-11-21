@@ -1,10 +1,13 @@
+/// <reference path="./EMascota.ts"/>
+
+
 namespace Entidades {
     export class mascota extends animal{
 
         public id:number;
         public tipo:string;
 
-        public constructor(nombre:string,edad:number,patas:number,id:number,tipo:string) {
+        public constructor(nombre:string,edad:number,patas:number,id:number,tipo:EMascota) {
             super(nombre,edad,patas);
             this.id = id;
             this.tipo = tipo;
