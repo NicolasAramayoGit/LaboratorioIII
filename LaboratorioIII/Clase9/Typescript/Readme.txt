@@ -6,7 +6,7 @@ tsc -v // version de typescript
 npm install -g //instalar global para toda la maquina
 tsc app //transpilar el app.ts
 tsc -init //agrega un tsconfing.json
-tsc -w //autamenticamente lo pasa a javascript
+tsc -w //automaticamente lo pasa a javascript
 tsc -outFile public/app.js validaciones/textos.ts validaciones/numeros.ts app.ts
 
 
