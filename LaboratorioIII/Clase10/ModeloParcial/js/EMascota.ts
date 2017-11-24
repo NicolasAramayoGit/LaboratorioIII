@@ -1,5 +1,7 @@
-namespace Entidades {
-    enum EMascota{
+namespace Entidades
+{
+   export enum EMascota
+   {
         perro,
         gato,
         reptil,

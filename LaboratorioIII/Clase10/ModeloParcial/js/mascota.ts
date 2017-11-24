@@ -1,13 +1,17 @@
 /// <reference path="./EMascota.ts"/>
+/// <reference path="./animal.ts"/>
 
 
-namespace Entidades {
-    export class mascota extends animal{
+namespace Entidades
+{
+    export class mascota extends animal
+    {
 
-        public id:number;
-        public tipo:string;
+        private id:number;
+        private tipo:EMascota;
 
-        public constructor(nombre:string,edad:number,patas:number,id:number,tipo:EMascota) {
+        public constructor(nombre:string,edad:number,patas:number,id:number,tipo:EMascota)
+        {
             super(nombre,edad,patas);
             this.id = id;
             this.tipo = tipo;
@@ -16,8 +20,7 @@ namespace Entidades {
 
         public ToJSON():string
         {
-            //return `{${super.ToString()}, "id":"${this.id}", "tipo":"${this.tipo}"}`;
-            return `{"datosAnimal":${super.ToJSON()} , "id":${this.id} , "tipo":"${this.tipo}"}`;
+            return super.ToJSON() + `"id":${this.id} , "tipo":"${Entidades.EMascota[this.tipo]}"`;
         }
     }
 }
