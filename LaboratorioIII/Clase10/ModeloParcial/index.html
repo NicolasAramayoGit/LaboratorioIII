@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +9,25 @@
 
     <!-- jquery -->
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
-    
+
+    <!-- bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <!-- Popper.min.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+
+    <!-- bootstrap JS -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- animal.js -->
+    <script src="js/animal.js"></script>
+
+    <!-- Emascota.js -->
+    <script src="js/EMascota.js"></script>
+
+    <!-- mascota.js -->
+    <script src="js/mascota.js"></script>
+
     <!-- app.js -->
     <script src="js/app.js"></script>
 
@@ -16,25 +35,138 @@
 
     <title>Modelo de Parcial</title>
 </head>
+
 <body>
-    
-    <label for="nombre">nombre</label>
-    <br>
-    <input type="text" id="nombre" name="nombre" placeholder="nombre mascota">
 
-    <label for="edad">edad</label>
-    <br>    
-    <input type="text" id="edad" name="edad" placeholder="edad mascota">
+    <section id="ingreso">
+        <h1>Ingreso Mascotas</h1>
+        <div class="container-fluid row">
 
-    <label for="patas">patas</label>
-    <br>
-    <input type="text" id="patas" name="patas" placeholder="patas">
+            <div class="col-md-2">
+                <label for="id">ID</label>
+                <br>
+                <input type="text" id="id" name="id" placeholder="id...">
+            </div>
 
-    <label for="tipo">tipo</label>
-    <br>
-    <select name="tipo" id="tipo">
-        
-    </select>
+            <div class="col-md-2">
+                <label for="nombre">nombre</label>
+                <br>
+                <input type="text" id="nombre" name="nombre" placeholder="nombre mascota">
+            </div>
+
+            <div class="col-md-2">
+                <label for="edad">edad</label>
+                <br>
+                <input type="text" id="edad" name="edad" placeholder="edad mascota">
+            </div>
+
+            <div class="col-md-2">
+                <label for="patas">patas</label>
+                <br>
+                <input type="text" id="patas" name="patas" placeholder="patas">
+            </div>
+
+
+            <div class="col-md-2">
+                <label for="tipo">tipo</label>
+                <br>
+                <select name="tipo" id="tipo">
+
+                </select>
+            </div>
+        </div>
+
+        <br>
+        <div class="container-fluid row col-md-offset-4">
+            <div class="col-md-4">
+                <input type="button" class="btn btn-info btn-block" id="btnAgregarMascota" value="Agregar">
+            </div>
+        </div>
+
+    </section>
+
+    <section class="container-fluid col-md-6 row" id="listado" style="padding-top: 45px; margin-left: 0px; float:right;">
+        <h2>Listado de Mascotas:</h2>
+        <div class="table-resposive">
+            <table id="tabla" class="table table-hover">
+                <thead>
+                    <!-- <tr>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Edad</th>
+                        <th>Tipo</th>
+                        <th>ID</th>
+                        <th>Acciones</th>
+                    </tr> -->
+                </thead>
+                <tbody id="tbody">
+
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section id="listado" class="container-fluid col-md-6" style="padding-top: 45px; margin-left: 0px; float:right;">
+        <div class="container-fluid row">
+            <h2>Filtros</h2>
+
+            <div class="button" style="margin-left:20px">
+                <input type "button" class='btn btn-basic btn-block' type="button" id="btnPromedio" value="Promedio">
+            </div>
+
+            <div class="button" style="margin-left:20px">
+                <input type="text" id="txtPromedio" class="form-control" name="nombre">
+            </div>
+        </div>
+
+        <div class="container-fluid row">
+
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="" id="checkNombre">Nombre
+                </label>
+            </div>
+            <div class="checkbox" style="margin-left:20px">
+                <label>
+                    <input type="checkbox" name="" id="checkEdad">Edad
+                </label>
+            </div>
+            <div class="checkbox" style="margin-left:20px">
+                <label>
+                    <input type="checkbox" name="" id="checkPatas">Patas
+                </label>
+            </div>
+            <div class="checkbox" style="margin-left:20px">
+                <label>
+                    <input type="checkbox" name="" id="checkTipo">Tipo
+                </label>
+            </div>
+
+            <div class="select" style="margin-left:20px">
+                <select name="tipo" id="tipo2" autocomplete="off" class="form-control">
+                </select>
+            </div>
+
+        </div>
+
+        <div class="table-responsive" style=" padding-left: 0px">
+            <table class="table table-hover" id="tabla">
+                <thead id=tHead>
+                    <!-- <tr>
+                        <th>Nombre</th>
+                        <th>Edad</th>
+                        <th>Patas</th>
+                        <th>Tipo</th>
+                    </tr>  -->
+                </thead>
+                <tbody id="tBody2">
+
+                </tbody>
+            </table>
+        </div>
+    </section>
+
 
 </body>
+
 </html>

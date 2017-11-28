@@ -20,7 +20,7 @@ namespace Entidades
 
         public ToJSON():string
         {
-            return super.ToJSON() + `"id":${this.id} , "tipo":"${Entidades.EMascota[this.tipo]}"`;
+            return super.ToJSON();
         }
     }
 }

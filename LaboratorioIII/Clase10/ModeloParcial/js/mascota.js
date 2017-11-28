@@ -21,7 +21,7 @@ var Entidades;
             return _this;
         }
         mascota.prototype.ToJSON = function () {
-            return _super.prototype.ToJSON.call(this) + ("\"id\":" + this.id + " , \"tipo\":\"" + Entidades.EMascota[this.tipo] + "\"");
+            return _super.prototype.ToJSON.call(this);
         };
         return mascota;
     }(Entidades.animal));
