@@ -5,6 +5,7 @@ $(function () {
     //selects
     var select = $("#tipo");
     var select2 = $("#tipo2");
+    var foto = $("#foto");
     //checkes
     var checkNombre = $("#checkNombre");
     var checkEdad = $("#checkEdad");
@@ -36,17 +37,51 @@ $(function () {
     btnPromedio.click(calcularPromedio);
     refrescarLista();
 });
+//function getBase64(archivo:any) {
+//    return btoa(archivo);
+//}
+// ENCODEA IMAGEN retorna una url data
+/*function encodeImageFileAsURL() {
+
+    var filesSelected = document.getElementById("foto").files;
+    if (filesSelected.length > 0) {
+        var fileToLoad = filesSelected[0];
+
+        var fileReader = new FileReader();
+
+        fileReader.onload = function (fileLoadedEvent) {
+            var srcData = fileLoadedEvent.target.result; // <--- data: base64
+
+            var newImage = document.createElement('img');
+            newImage.src = srcData;
+
+            document.getElementById("imgTest").innerHTML = newImage.outerHTML;
+            alert("Converted Base64 version is " + document.getElementById("imgTest").innerHTML);
+            console.log("Converted Base64 version is " + document.getElementById("imgTest").innerHTML);
+        }
+        fileReader.readAsDataURL(fileToLoad);
+    }
+}*/
+var fotoData;
+function encodeImageFileAsURL() {
+    var file = document.getElementById("foto").files[0];
+    var reader = new FileReader();
+    reader.onloadend = function () {
+        fotoData = reader.result;
+    };
+    reader.readAsDataURL(file);
+}
 function AgregarMascota() {
     var nombre = $("#nombre");
     var edad = $("#edad");
     var patas = $("#patas");
     var tipo = $("#tipo");
-    var mascota = new practicaMascotas.Empleado(nombre.val(), edad.val(), patas.val(), tipo.val());
+    var mascota = new practicaMascotas.Empleado(nombre.val(), edad.val(), patas.val(), tipo.val(), fotoData);
     var MascotasString = localStorage.getItem("Mascotas");
     var mascotasArray = [];
     var mascotasArrayAux;
     if (MascotasString == null) {
-        mascotasArray.push(JSON.parse(mascota.toJson()));
+        mascotasArray.push(mascota);
         console.log(mascotasArray);
     }
     else {
@@ -57,20 +92,19 @@ function AgregarMascota() {
         console.log(mascotasArray);
         mascotasArray.push(JSON.parse(mascota.toJson()));
     }
-    //alert(mascota.toJson());
-    //localStorage.setItem("Mascotas", mascota.toJson());
-    //mascotasArray = JSON.parse(MascotasString);
-    //mascotaJson.push(JSON.PARSE(nuevaMascota.toJson()))
     localStorage.setItem("Mascotas", JSON.stringify(mascotasArray));
     refrescarLista();
 }
 function refrescarLista() {
     var tBody = $("#tBody");
-    tBody.html("<tr><th>Nombre</th><th>Edad</th><th>Patas</th><th>Tipo</th><th>Accion</th></tr>");
+    tBody.html("<tr><th>Nombre</th><th>Edad</th><th>Pies (talle)</th><th>Tipo</th><th>Foto</th><th>Accion</th></tr>");
     var mascotas = JSON.parse(localStorage.getItem("Mascotas"));
     for (var index = 0; index < mascotas.length; index++) {
-        tBody.append("<tr><td name=n" + index + ">" + mascotas[index].nombre + "</td><td name=a" + index + ">" + mascotas[index].edad + "</td>" +
-            "</td><td name=a" + index + ">" + mascotas[index].patas + "</td>" + "</td><td name=a" + index + ">" + mascotas[index].tipo + "</td>" +
+        tBody.append("<tr><td name=n" + index + ">" + mascotas[index].nombre + "</td>" +
+            "<td name=a" + index + ">" + mascotas[index].edad + "</td>" +
+            "<td name=a" + index + ">" + mascotas[index].patas + "</td>" +
+            "<td name=a" + index + ">" + mascotas[index].tipo + "</td>" +
+            "<td><img src='" + mascotas[index].foto + "' height='42' width='42'></img></td>" +
             "<td><input type=button id= " + index + " value=Borrar onclick=borrar(" + index + ")>" +
             "<input type=button id= " + index + " value=Modificar onclick=modificar(" + index + ")></td></tr>");
     }

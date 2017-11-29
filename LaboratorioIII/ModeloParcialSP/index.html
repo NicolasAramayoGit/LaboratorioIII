@@ -21,45 +21,48 @@
 
     <section id="inscripcion">
 
-        <h2>Ingreso de Empleados</h2>
+
         <div class="container">
-
-            <div class="col-md-3 col-md-offset-2">
-                <label for="nombre">Nombre</label>
-                <br>
-                <input type="text" id="nombre" class="form-control" name="nombre" placeholder="Nombre.." autocomplete="off" autofocus>
-                <br>
+            <div class="row">
+                <h2>Ingreso de Empleados</h2>
             </div>
 
-            <div class="col-md-3">
-                <label for="edad">Edad</label>
-                <br>
-                <input type="text" id="edad" class="form-control" name="apellido" placeholder="Edad.." autocomplete="off">
-                <br>
+            <div class="row">
+                <div class="col-md-6 col-md-offset-2">
+                    <label for="nombre">Nombre</label>
+                    <br>
+                    <input type="text" id="nombre" class="form-control" name="nombre" placeholder="Nombre.." autocomplete="off" autofocus>
+                    <br>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="edad">Edad</label>
+                    <br>
+                    <input type="text" id="edad" class="form-control" name="apellido" placeholder="Edad.." autocomplete="off">
+                    <br>
+                </div>
             </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <label for="patas">Pies (Talle)</label>
+                    <br>
+                    <input type="text" id="patas" class="form-control" name="apellido" placeholder="Patas.." autocomplete="off">
+                    <br>
+                </div>
 
-            <div class="col-md-3">
-                <label for="patas">Pies (Talle)</label>
-                <br>
-                <input type="text" id="patas" class="form-control" name="apellido" placeholder="Patas.." autocomplete="off">
-                <br>
+                <div class="col-md-4">
+                    <label for="Tipo">Nivel de Puesto</label>
+                    <br>
+                    <select name="tipo" id="tipo" autocomplete="off" class="form-control">
+
+                    </select>
+                    <br>
+                </div>
+                <div class="col-md-1">
+                    <label for="foto">Foto</label>
+                    <input type="file" name="foto" id="foto" onchange="encodeImageFileAsURL();">
+                </div>
             </div>
-
-            <div class="col-md-3">
-                <label for="Tipo">Nivel de Puesto</label>
-                <br>
-                <select name="tipo" id="tipo" autocomplete="off" class="form-control">
-
-                </select>
-                <br>
-            </div>
-
-            <div class="col-md-1">
-                <label for="foto">Foto</label>
-                <input type="file" name="foto" id="foto">
-            </div>
-
-
         </div>
 
         <br>
@@ -150,7 +153,7 @@
         </div>
     </section>
 
-    <img src="" id="tableBanner" />
+    <div id="imgTest"></div>
 </body>
 
 </html>
