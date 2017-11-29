@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/bootstrap.min.js"></script>
+    <script src="clases/Persona.js"></script>
+    <script src="clases/Empleado.js"></script>
+    <script src="clases/enumerado.js"></script>
+    <script src="main.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+
+    <section id="inscripcion">
+
+        <h2>Ingreso de Empleados</h2>
+        <div class="container">
+
+            <div class="col-md-3 col-md-offset-2">
+                <label for="nombre">Nombre</label>
+                <br>
+                <input type="text" id="nombre" class="form-control" name="nombre" placeholder="Nombre.." autocomplete="off" autofocus>
+                <br>
+            </div>
+
+            <div class="col-md-3">
+                <label for="edad">Edad</label>
+                <br>
+                <input type="text" id="edad" class="form-control" name="apellido" placeholder="Edad.." autocomplete="off">
+                <br>
+            </div>
+
+            <div class="col-md-3">
+                <label for="patas">Pies (Talle)</label>
+                <br>
+                <input type="text" id="patas" class="form-control" name="apellido" placeholder="Patas.." autocomplete="off">
+                <br>
+            </div>
+
+            <div class="col-md-3">
+                <label for="Tipo">Nivel de Puesto</label>
+                <br>
+                <select name="tipo" id="tipo" autocomplete="off" class="form-control">
+
+                </select>
+                <br>
+            </div>
+
+            <div class="col-md-1">
+                <label for="foto">Foto</label>
+                <input type="file" name="foto" id="foto">
+            </div>
+
+
+        </div>
+
+        <br>
+        <div class="container-fluid row col-md-offset-4">
+            <div class="col-md-4">
+                <input type "button" class='btn btn-info btn-block' type="button" id="btnAgregar" value="Agregar">
+            </div>
+        </div>
+
+    </section>
+
+
+    <section id="listado" class="container-fluid col-md-6 row" style="padding-top: 45px; margin-left: 0px; float:left;">
+        <h2>Tabla de Empleados</h2>
+        <div class="table-responsive" style=" padding-left: 0px">
+            <table class="table table-hover" id="tabla">
+                <thead>
+                    <!-- <tr>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Accion</th>
+                    </tr> -->
+                </thead>
+                <tbody id="tBody">
+
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section id="listado" class="container-fluid col-md-6" style="padding-top: 45px; margin-left: 0px; float:right;">
+        <div class="container-fluid row">
+            <h2>Filtros</h2>
+
+            <div class="button" style="margin-left:20px">
+                <input type "button" class='btn btn-warning btn-block' type="button" id="btnPromedio" value="Promedio">
+            </div>
+
+            <div class="button" style="margin-left:20px">
+                <input type="text" id="txtPromedio" class="form-control" name="nombre">
+            </div>
+        </div>
+
+        <div class="container-fluid row">
+
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="" id="checkNombre">Nombre
+                </label>
+            </div>
+            <div class="checkbox" style="margin-left:20px">
+                <label>
+                    <input type="checkbox" name="" id="checkEdad">Edad
+                </label>
+            </div>
+            <div class="checkbox" style="margin-left:20px">
+                <label>
+                    <input type="checkbox" name="" id="checkPatas">Pies (Talle)
+                </label>
+            </div>
+            <div class="checkbox" style="margin-left:20px">
+                <label>
+                    <input type="checkbox" name="" id="checkTipo">Tipo
+                </label>
+            </div>
+
+            <div class="select" style="margin-left:20px">
+                <select name="tipo" id="tipo2" autocomplete="off" class="form-control">
+                </select>
+            </div>
+
+        </div>
+
+        <div class="table-responsive" style=" padding-left: 0px">
+            <table class="table table-hover" id="tabla">
+                <thead id=tHead>
+                    <!-- <tr>
+                        <th>Nombre</th>
+                        <th>Edad</th>
+                        <th>Patas</th>
+                        <th>Tipo</th>
+                    </tr>  -->
+                </thead>
+                <tbody id="tBody2">
+
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <img src="" id="tableBanner" />
+</body>
+
+</html>
