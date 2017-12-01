@@ -8,7 +8,7 @@ $(function () {
     let select2 = $("#tipo2");
 
 
-    let foto: any = $("#foto");
+    //let foto: any = $("#foto");
 
 
     //checkes
@@ -19,13 +19,14 @@ $(function () {
 
     //cargo los select
     for (var i = 0; i < 3; i++) {
-        select.append("<option value=" + i + ">" + practicaMascotas.animales[i] + "</option>");
-        select2.append("<option value=" + i + ">" + practicaMascotas.animales[i] + "</option>");
+        select.append("<option value=" + i + ">" + Entidades.puestos[i] + "</option>");
+        select2.append("<option value=" + i + ">" + Entidades.puestos[i] + "</option>");
     }
 
-    select2.append("<option value=4>Todos</option>");
+    select2.append("<option value='4'>Todos</option>");
 
-    select.change(function () {
+    //DEPRECATED por obsoleto.
+    /*select.change(function () {
         let cantidadPatas: number = <number>select.val();
 
         if (cantidadPatas >= 0 && cantidadPatas < 4) {
@@ -34,7 +35,7 @@ $(function () {
         else {
             $("#patas").val(0);
         }
-    });
+    });*/
 
     //armado de tablas filtradas.
     select2.change(armarTablaFiltrada);
@@ -44,16 +45,18 @@ $(function () {
     checkTipo.change(armarTablaFiltrada);
 
     //acciones al cliclear
-    agregar.click(AgregarMascota);
+    agregar.click(AgregarEmpleado);
     btnPromedio.click(calcularPromedio);
 
     refrescarLista();
 });
 
+//DEPRECATED por uso de otra función.
 //function getBase64(archivo:any) {
 //    return btoa(archivo);
 //}
 
+//DEPRECATED por falta de uso.
 // ENCODEA IMAGEN retorna una url data
 /*function encodeImageFileAsURL() {
 
@@ -76,11 +79,12 @@ $(function () {
         fileReader.readAsDataURL(fileToLoad);
     }
 }*/
+
 let fotoData:string;
 
 function encodeImageFileAsURL() {
-    var file = document.getElementById("foto").files[0];
-    var reader = new FileReader();
+    let file = document.getElementById("foto").files[0];
+    let reader = new FileReader();
     reader.onloadend = function () {
         fotoData = reader.result;
     }
@@ -89,15 +93,15 @@ function encodeImageFileAsURL() {
 
 
 
-function AgregarMascota(): void {
+function AgregarEmpleado(): void {
     let nombre = $("#nombre");
     let edad = $("#edad");
     let patas = $("#patas");
     let tipo = $("#tipo");
 
 
-    let mascota: practicaMascotas.Empleado =
-        new practicaMascotas.Empleado(<string>nombre.val(), <number>edad.val(), <number>patas.val(), <number>tipo.val(),<string> fotoData);
+    let mascota: Entidades.Empleado =
+        new Entidades.Empleado(<string>nombre.val(), <number>edad.val(), <number>patas.val(), <number>tipo.val(),<string> fotoData);
 
     let MascotasString: string | null = localStorage.getItem("Mascotas");
     let mascotasArray = [];
@@ -147,11 +151,6 @@ function refrescarLista() {
 function borrar(id: number) {
     let mascotas = JSON.parse(<string>localStorage.getItem("Mascotas"));
 
-    //El primer parametro del splice indica la posición del array a partir del cual queremos borrar
-    //elementos. El segundo indica la cantidad de elementos de ahí en adelante. Como yo solo quiero
-    //borrar el elemento de la posición indicada le pongo un 1.
-    //Además el splice reordena el array corriendo los índices posteriores hacia abajo porque
-    //desapareció el índice que eliminé.
     mascotas.splice(id, 1);
 
     localStorage.setItem("Mascotas", JSON.stringify(mascotas));
@@ -166,11 +165,11 @@ function modificar(id: number) {
     $("#nombre").val(mascotas[id].nombre);
     $("#edad").val(mascotas[id].edad);
     $("#patas").val(mascotas[id].patas);
-    $("#tipo").val(practicaMascotas.animales[mascotas[id].tipo]);
+    $("#tipo").val(Entidades.puestos[mascotas[id].tipo]);
 
     btn.attr("value", "modificar");
 
-    btn.off("click", AgregarMascota);
+    btn.off("click", AgregarEmpleado);
 
     let mod: any;
 
@@ -178,7 +177,7 @@ function modificar(id: number) {
         mascotas[id].nombre = $("#nombre").val();
         mascotas[id].edad = $("#edad").val();
         mascotas[id].patas = $("#patas").val();
-        mascotas[id].tipo = practicaMascotas.animales[$("#tipo").val()];
+        mascotas[id].tipo = Entidades.puestos[<number>$("#tipo").val()];
 
         localStorage.setItem("Mascotas", JSON.stringify(mascotas));
 
@@ -186,7 +185,7 @@ function modificar(id: number) {
 
         btn.attr("value", "Agregar");
         btn.off("click", mod);
-        btn.on("click", AgregarMascota);
+        btn.on("click", AgregarEmpleado);
     });
 
 }
@@ -230,12 +229,11 @@ function animalesTipoFilter(animales: any, tipo: any) {
 function animalesReduce(animales: any) {
     if (animales.length > 0) {
         let acumEdad = parseInt(animales[0].edad);
-        //hola
+        
         animales
             .reduce(function (previo, actual) {
 
                 acumEdad += parseInt(actual.edad);
-                //cantidad += 1;
                 return actual;
             });
 
@@ -263,7 +261,7 @@ function armarTablaFiltrada() {
     let mascotas = JSON.parse(localStorage.getItem("Mascotas"));
 
     if (select2.val() != 6) {
-        mascotas = animalesTipoFilter(mascotas, (practicaMascotas.animales[select2.val()]));
+        mascotas = animalesTipoFilter(mascotas, (Entidades.puestos[<number>select2.val()]));
     }
 
     let mascotasNombre = animalesNombre(mascotas);
@@ -324,7 +322,7 @@ function calcularPromedio() {
     let mascotas = JSON.parse(localStorage.getItem("Mascotas"));
 
     if (select2.val() != 6) {
-        mascotas = animalesTipoFilter(mascotas, (practicaMascotas.animales[select2.val()]));
+        mascotas = animalesTipoFilter(mascotas, (Entidades.puestos[<number>select2.val()]));
     }
 
     txtPromedio.val(animalesReduce(mascotas));

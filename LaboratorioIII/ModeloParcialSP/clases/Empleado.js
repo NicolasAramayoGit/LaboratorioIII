@@ -10,8 +10,8 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var practicaMascotas;
-(function (practicaMascotas) {
+var Entidades;
+(function (Entidades) {
     var Empleado = /** @class */ (function (_super) {
         __extends(Empleado, _super);
         function Empleado(nombre, edad, patas, tipo, foto) {
@@ -21,9 +21,9 @@ var practicaMascotas;
             return _this;
         }
         Empleado.prototype.toJson = function () {
-            return _super.prototype.toJson.call(this) + ("\"tipo\" : \"" + practicaMascotas.animales[this._tipo] + "\", \"foto\":\"" + this._foto + "\"}");
+            return _super.prototype.toJson.call(this) + ("\"tipo\" : \"" + Entidades.puestos[this._tipo] + "\", \"foto\":\"" + this._foto + "\"}");
         };
         return Empleado;
-    }(practicaMascotas.Persona));
-    practicaMascotas.Empleado = Empleado;
-})(practicaMascotas || (practicaMascotas = {}));
+    }(Entidades.Persona));
+    Entidades.Empleado = Empleado;
+})(Entidades || (Entidades = {}));

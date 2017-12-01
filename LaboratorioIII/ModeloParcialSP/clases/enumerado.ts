@@ -1,6 +1,6 @@
-namespace practicaMascotas
+namespace Entidades
 {
-    export enum animales
+    export enum puestos
     {
         alto,
         medio,

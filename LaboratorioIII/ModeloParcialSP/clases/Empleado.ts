@@ -2,15 +2,15 @@
 ///<reference path="Persona.ts"/>
 ///<reference path="enumerado.ts"/>
 
-namespace practicaMascotas
+namespace Entidades
 {
     export class Empleado extends Persona
     {
        //private _id:number;
-       public _tipo:animales;
+       public _tipo:puestos;
        public _foto:string | undefined;
 
-       constructor(nombre:string, edad:number, patas:number, tipo:animales, foto?:string)
+       constructor(nombre:string, edad:number, patas:number, tipo:puestos, foto?:string)
        {
           super(nombre,edad,patas);
           this._tipo = tipo;
@@ -19,7 +19,7 @@ namespace practicaMascotas
 
        toJson():string
        {
-           return super.toJson() + `"tipo" : "${animales[this._tipo]}", "foto":"${this._foto}"}`;
+           return super.toJson() + `"tipo" : "${puestos[this._tipo]}", "foto":"${this._foto}"}`;
        }
     }
 }

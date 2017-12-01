@@ -1,5 +1,5 @@
-var practicaMascotas;
-(function (practicaMascotas) {
+var Entidades;
+(function (Entidades) {
     var Persona = /** @class */ (function () {
         function Persona(nombre, edad, patas) {
             this._nombre = nombre;
@@ -12,5 +12,5 @@ var practicaMascotas;
         };
         return Persona;
     }());
-    practicaMascotas.Persona = Persona;
-})(practicaMascotas || (practicaMascotas = {}));
+    Entidades.Persona = Persona;
+})(Entidades || (Entidades = {}));

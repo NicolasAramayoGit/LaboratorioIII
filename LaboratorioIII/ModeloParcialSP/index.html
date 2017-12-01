@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
-        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="js/bootstrap.min.js"></script>
     <script src="clases/Persona.js"></script>
@@ -65,16 +64,19 @@
             </div>
         </div>
 
-        <br>
-        <div class="container-fluid row col-md-offset-4">
-            <div class="col-md-4">
-                <input type "button" class='btn btn-info btn-block' type="button" id="btnAgregar" value="Agregar">
+        <!-- BUTTON AGREGAR EMPLEADO -->
+        <div class="row">
+            <div class="container text-center">
+                <div class="col-md-9">
+                    <button class="btn btn-info btn-lg btn-block" type="button" id="btnAgregar">Agregar</button>
+                </div>
             </div>
         </div>
 
     </section>
+    <!--FIN-SECTION -->
 
-
+    <!-- TABLA DE EMPLEADOS  -->
     <section id="listado" class="container-fluid col-md-6 row" style="padding-top: 45px; margin-left: 0px; float:left;">
         <h2>Tabla de Empleados</h2>
         <div class="table-responsive" style=" padding-left: 0px">
@@ -152,8 +154,5 @@
             </table>
         </div>
     </section>
-
-    <div id="imgTest"></div>
-</body>
 
 </html>

@@ -1,5 +1,5 @@
 
-namespace practicaMascotas
+namespace Entidades
 {
     export class Persona
     {

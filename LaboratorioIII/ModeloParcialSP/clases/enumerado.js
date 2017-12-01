@@ -1,9 +1,9 @@
-var practicaMascotas;
-(function (practicaMascotas) {
-    var animales;
-    (function (animales) {
-        animales[animales["alto"] = 0] = "alto";
-        animales[animales["medio"] = 1] = "medio";
-        animales[animales["bajo"] = 2] = "bajo";
-    })(animales = practicaMascotas.animales || (practicaMascotas.animales = {}));
-})(practicaMascotas || (practicaMascotas = {}));
+var Entidades;
+(function (Entidades) {
+    var puestos;
+    (function (puestos) {
+        puestos[puestos["alto"] = 0] = "alto";
+        puestos[puestos["medio"] = 1] = "medio";
+        puestos[puestos["bajo"] = 2] = "bajo";
+    })(puestos = Entidades.puestos || (Entidades.puestos = {}));
+})(Entidades || (Entidades = {}));
