@@ -1,0 +1,121 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+
+header{
+    width: 100%;
+    height: 85px;
+}
+
+.logo{
+    width: 55%;
+    height: 85px;
+    margin: auto;
+    margin-left: 200px;
+}
+
+/* MENU */
+
+nav {
+    background-color:magenta; 
+    height: 50px;
+    font-family: 'Times New Roman', Times, serif, Helvetica, sans-serif;
+    font-size: 15px;
+}
+nav 
+{
+    padding-left: 230px;
+}
+nav ul {
+    display: inline-block;
+    list-style: none;
+}
+nav ul a{
+    text-decoration: none;
+    text-align: center;
+    color:white;
+    font-weight: bold;
+    padding:10px;
+    line-height: 10px;
+}
+nav ul li {
+    color:white;
+    width: 10em;
+    padding: 12px;
+    padding-bottom: 27px;
+    height: 11px;
+    float: left;
+    list-style: none;
+    display: block
+}
+
+nav ul li ul {
+    display: none; /*Para que no se vea el submenú sin hacer que aparezca*/
+    position:absolute;
+    top:50px;
+    left:0;
+}
+
+nav ul li:hover{
+    cursor:move;
+    background-color: deepskyblue;
+    height: 11px;
+}
+nav li ul {
+    position:absolute;
+    display:none;
+}
+nav li {
+    float:left;
+    position:relative;
+    width: 20em;
+}
+nav li:hover ul {
+    display:block;
+    background-color: deepskyblue
+}
+
+a {text-decoration: none}
+h2 {color: deepskyblue; font-size: 16px}
+main {margin-left: 190px; width: 45%;float: left}
+aside {float: right; margin-right: 10%}
+aside ul {
+    list-style-type: none;
+    margin: 20px;
+    padding: 0;
+    width: 200px;
+    
+}
+aside li a {
+    display: block;
+    padding: 20px 20px;
+    text-decoration: none;
+}
+
+/* Change the link color on hover */
+aside li a:hover {
+    background-color: deepskyblue;
+    color: white;
+}
+
+aside ul li {
+    margin: 20px;
+    
+}
+
+aside ul li a {
+    font-size: 12px; 
+    color: deepskyblue;
+}
+
+aside h2 {
+    margin: 20px;
+}
+footer {
+    margin-top:80%; 
+    background-color:  #F704A9}
+
+footer p { 
+    color: white;
+}
