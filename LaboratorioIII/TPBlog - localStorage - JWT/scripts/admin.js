@@ -88,25 +88,22 @@ function login(){
     });
 }
 function enviarModificacion(data){
-    console.log(data);
-    $.ajax({
-        url: "http://localhost:3000/modificar",
-        data: data,
-        dataType: "json",
-        method: "POST",
-        success: function (result) {
-            console.log(result.message);
+    xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            var resp = this.response;
+            console.log(resp);
             cargarDatos();
-            limpiarFormulario();
+            limpiarCampos();
             postAModificar = null;
-        },
-        error: function (jqXHR, textStatus, errorThrown) {
-            console.log("Error: " + errorThrown);
-        },
-        complete: function (jqXHR, textStatus, errorThrown) {
-            console.log("Completo: " + textStatus);
         }
-    });
+        else{
+            $("tbody").html("<img src='img/spinner.gif' alt='spinner'>");
+        }
+    };
+    xhr.open("POST", "http://localhost:3000/modificar", true);
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.send(JSON.stringify(data));
 }
 
 function limpiarFormulario(){
@@ -115,7 +112,33 @@ function limpiarFormulario(){
     document.getElementById("txtMas").value = "";
 }
 function enviarAlta(data){
-    xhr = new XMLHttpRequest();
+    $.ajax({
+        url: "http://localhost:3000/agregar",
+        method: 'POST',
+        dataType: 'json',
+        data: data,
+        headers: {
+            "Authorization": sessionStorage.token
+        },
+        beforeSend: function (result) {
+            $("tbody").html("<img src='img/spinner.gif' alt='spinner'>");
+        },
+        success: function (result) {
+            console.log(result.message);
+            cargarDatos();
+            datos = result.data;
+            postAModificar = null;
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.log(errorThrown);
+        },
+        complete: function (jqXHR, textStatus) {
+            console.log(textStatus);
+        }
+    });
+
+    // DEPRECATED
+    /*xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function(){
         if (this.readyState == 4 && this.status == 200) {
            var resp = JSON.parse(this.response); 
@@ -128,7 +151,7 @@ function enviarAlta(data){
     xhr.open("POST","http://localhost:3000/agregar",true);
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.setRequestHeader("authorization", sessionStorage.token);
-    xhr.send(JSON.stringify(data));
+    xhr.send(JSON.stringify(data));*/
 }
 
 function cargarDatos(){
@@ -137,6 +160,9 @@ function cargarDatos(){
         method: 'GET',
         dataType: "json",
         data: { 'collection': 'posts' },
+        beforeSend: function (result) {
+            $("tbody").html("<img src='img/spinner.gif' alt='spinner'>");
+        },
         success: function (result) {
             console.log(result.message);
             refrescarTabla(result.data);
@@ -150,6 +176,7 @@ function cargarDatos(){
         }
     });
 
+    // DREPRECATED
     /*xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function(){
         if (this.readyState == 4 && this.status == 200) {
@@ -190,6 +217,8 @@ function borrar(id){
            var resp = JSON.parse(this.response); 
            console.log(resp.message);
            cargarDatos();
+        }else{
+            $("tbody").html("<img src='img/spinner.gif' alt='spinner'>");
         }
     };
     xhr.open("POST","http://localhost:3000/eliminar",true);

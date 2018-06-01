@@ -9,6 +9,8 @@ function cargarDatos(){
            console.log(resp.message);
            datos = resp.data;
            cargarPosts();
+        }else{
+            $("main").html("<img src='img/spinner.gif' alt='spinner'>");
         }
     };
     var url = "http://localhost:3000/traer?collection=posts";
@@ -28,15 +30,16 @@ function cargarPosts(){
     var posts = document.getElementsByTagName("main");
     posts[0].innerHTML = "";
     var post = "";
+
     for(var i = 0;i<datos.length;i++){
-        post += `<article><h2> ` + datos[i].titulo + `</h2>
-        <img src="img/imagen_2.jpg" alt="Imagen puente de la torre">
-        <p> `+ datos[i].articulo + ` </p>    
-        <a href="#" class="boton">Leer más</a>
-        </article>`;
-        //posts.innerHTML += post;
-        //posts.appendChild(post);
+        post += "<article class='col-lg-6 col-md-12'>";
+        post += "<h2> " + datos[i].titulo + "</h2>";
+        post += "<img src='img/imagen_2.jpg' alt='Imagen puente de la torre'>";
+        post += "<p> "+ datos[i].articulo + " </p>";
+        post += "<a href='#' class='boton'>Leer más</a>";
+        post += "</article>";
     }
+
     posts[0].innerHTML = post;
     
 }
