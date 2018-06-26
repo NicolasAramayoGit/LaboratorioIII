@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+        crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+        crossorigin="anonymous"></script>
+    <script src="js/animal.js"></script>
+    <script src="js/mascota.js"></script>
+    <script src="js/enumerados.js"></script>
+    <script src="js/app.js"></script>
+
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="container" style="background-color:powderblue">
+
+        <h1 class="text-center font-weight-bold">ABM Mascotas</h1>
+        <hr>
+
+        <br>
+        <div class="row">
+            <label class="col-lg-1" for="txtId">Id: </label>
+            <div class="col-11">
+                <input type="text" class="form-control" name="" id="txtId">
+            </div>
+        </div>
+        <br>
+
+        <div class="row">
+            <label class="col-lg-1" for="txtNombre">Nombre:</label>
+            <div class="col-11">
+                <input type="text" class="form-control" name="" id="txtNombre">
+            </div>
+        </div>
+        <br>
+
+        <div class="row">
+            <label class="col-lg-1" for="txtEdad">Edad: </label>
+            <div class="col-11">
+                <input class="form-control" type="text" name="" id="txtEdad">
+            </div>
+        </div>
+        <br>
+
+        <div class="row">
+            <label class="col-lg-1" for="txtTipo">Tipo: </label>
+            <div class="col-4">
+                <select class="form-control" name="txtTipo" id="selectTipo">
+                    <option value="0">Perro</option>
+                    <option value="1">Gato</option>
+                    <option value="2">Reptil</option>
+                    <option value="3">Roedor</option>
+                    <option value="4">Ave</option>
+                    <option value="5">Pez</option>
+                </select>
+            </div>
+
+            <label class="col-lg-2" for="txtPatas">Cantidad Patas: </label>
+            <div class="col-5">
+                <input class="form-control" type="number" min="0" max="4" name="" id="txtPatas">
+            </div>
+
+        </div>
+        <br>
+        <div class="row">
+
+            <div class="col-lg-2">
+                <button type="button" class="btn btn-primary" id="btnAgregar" onclick="agregarMascota()">Agregar</button>
+            </div>
+            <div class="col-lg-2">
+                <button type="button" class="btn btn-primary" id="btnModificar">Modificar</button>
+            </div>
+            <div class="col-lg-2">
+                <button type="button" class="btn btn-primary" id="btnEliminar">Eliminar</button>
+            </div>
+            <div class="col-lg-3 offset-lg-3">
+                <button type="button" class="btn btn-danger" id="btnClearStorage" onclick="cleanStorage()">Limpiar LocalStorage</button>
+            </div>
+
+        </div>
+
+        <hr>
+        <h2 class="text-center">Filtros</h2>
+        <hr>
+
+        <div class="row">
+
+            <label class="col-lg-2" for="cmbFiltro">Filtrar por:</label>
+            <div class="col-lg-2">
+                <select name="cmbFiltro" id="cmbFiltro"></select>
+            </div>
+
+            <label class="col-lg-3" for="txtPromedio">Promedio de edad:</label>
+            <div class="col-lg-2">
+                <input type="text" id="txtPromedio" style="width:50px">
+            </div>
+            <div class="col-lg-3">
+                <button type="button" class="btn btn-info" onclick="calcularPromedio()">Calcular Promedio</button>
+            </div>
+        </div>
+        <br>
+
+        <h3>Campos mostrados
+            <small>Tildar los campos a mostrar</small>
+        </h3>
+
+        <hr>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="chkId" checked>
+            <label class="form-check-label" for="chkId"> Id </label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="chkName" checked>
+            <label class="form-check-label" for="chkName"> Nombre </label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="chkEdad" checked>
+            <label class="form-check-label" for="chkEdad"> Edad </label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="chkPatas" checked>
+            <label class="form-check-label" for="chkPatas"> Patas </label>
+        </div>
+        <hr>
+
+        <h2 class="text-center">Lista de Mascotas</h2>
+        <hr>
+
+        <div id="divTabla">
+
+        </div>
+
+
+
+    </div>
+
+</body>
+
+</html>
